@@ -82,7 +82,7 @@ module.exports =
   
   var server = global.server = (0, _express2['default'])();
   
-  server.set('port', process.env.PORT || 5000);
+  server.set('port', process.env.PORT || 6000);
   server.use(_express2['default']['static'](_path2['default'].join(__dirname, 'public')));
   
   //
