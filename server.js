@@ -3,41 +3,41 @@ module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -47,61 +47,61 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   var _this2 = this;
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   __webpack_require__(44);
-  
+
   var _lodash = __webpack_require__(52);
-  
+
   var _lodash2 = _interopRequireDefault(_lodash);
-  
+
   var _fs = __webpack_require__(8);
-  
+
   var _fs2 = _interopRequireDefault(_fs);
-  
+
   var _path = __webpack_require__(9);
-  
+
   var _path2 = _interopRequireDefault(_path);
-  
+
   var _express = __webpack_require__(6);
-  
+
   var _express2 = _interopRequireDefault(_express);
-  
+
   var _reactDomServer = __webpack_require__(53);
-  
+
   var _reactDomServer2 = _interopRequireDefault(_reactDomServer);
-  
+
   var _router = __webpack_require__(30);
-  
+
   var _router2 = _interopRequireDefault(_router);
-  
+
   var server = global.server = (0, _express2['default'])();
-  
+
   server.set('port', process.env.PORT || 6000);
   server.use(_express2['default']['static'](_path2['default'].join(__dirname, 'public')));
-  
+
   //
   // Register API middleware
   // -----------------------------------------------------------------------------
   server.use('/api/content', __webpack_require__(13));
-  
+
   //
   // Register server-side rendering middleware
   // -----------------------------------------------------------------------------
-  
+
   // The top-level React component + HTML template for it
   var templateFile = _path2['default'].join(__dirname, 'templates/index.html');
   var template = _lodash2['default'].template(_fs2['default'].readFileSync(templateFile, 'utf8'));
-  
+
   server.get('*', function callee$0$0(req, res, next) {
     return regeneratorRuntime.async(function callee$0$0$(context$1$0) {
       var _this = this;
-  
+
       while (1) switch (context$1$0.prev = context$1$0.next) {
         case 0:
           context$1$0.prev = 0;
@@ -133,40 +133,40 @@ module.exports =
                     data.body = _reactDomServer2['default'].renderToString(component);
                     data.css = css.join('');
                   }));
-  
+
                 case 6:
                   html = template(data);
-  
+
                   res.status(statusCode).send(html);
-  
+
                 case 8:
                 case 'end':
                   return context$2$0.stop();
               }
             }, null, _this);
           })());
-  
+
         case 3:
           context$1$0.next = 8;
           break;
-  
+
         case 5:
           context$1$0.prev = 5;
           context$1$0.t0 = context$1$0['catch'](0);
-  
+
           next(context$1$0.t0);
-  
+
         case 8:
         case 'end':
           return context$1$0.stop();
       }
     }, null, _this2, [[0, 5]]);
   });
-  
+
   //
   // Launch the server
   // -----------------------------------------------------------------------------
-  
+
   server.listen(server.get('port'), function () {
     if (process.send) {
       process.send('online');
@@ -186,33 +186,33 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   // eslint-disable-line no-unused-vars
-  
+
   var _fbjsLibInvariant = __webpack_require__(7);
-  
+
   var _fbjsLibInvariant2 = _interopRequireDefault(_fbjsLibInvariant);
-  
+
   var _fbjsLibExecutionEnvironment = __webpack_require__(4);
-  
+
   var count = 0;
-  
+
   function withStyles(styles) {
     return function (ComposedComponent) {
       return (function () {
@@ -223,10 +223,10 @@ module.exports =
           },
           enumerable: true
         }]);
-  
+
         function WithStyles() {
           _classCallCheck(this, WithStyles);
-  
+
           this.refCount = 0;
           ComposedComponent.prototype.renderCss = (function (css) {
             var style = undefined;
@@ -242,13 +242,13 @@ module.exports =
                 style = document.createElement('style');
                 style.setAttribute('id', this.styleId);
                 style.setAttribute('type', 'text/css');
-  
+
                 if ('textContent' in style) {
                   style.textContent = css;
                 } else {
                   style.styleSheet.cssText = css;
                 }
-  
+
                 document.getElementsByTagName('head')[0].appendChild(style);
                 this.refCount++;
               }
@@ -257,7 +257,7 @@ module.exports =
             }
           }).bind(this);
         }
-  
+
         _createClass(WithStyles, [{
           key: 'componentWillMount',
           value: function componentWillMount() {
@@ -288,12 +288,12 @@ module.exports =
             return _react2['default'].createElement(ComposedComponent, this.props);
           }
         }]);
-  
+
         return WithStyles;
       })();
     };
   }
-  
+
   exports['default'] = withStyles;
   module.exports = exports['default'];
 
@@ -308,7 +308,7 @@ module.exports =
   // css base code, injected by the css-loader
   module.exports = function() {
   	var list = [];
-  
+
   	// return the list of modules as css string
   	list.toString = function toString() {
   		var result = [];
@@ -322,7 +322,7 @@ module.exports =
   		}
   		return result.join("");
   	};
-  
+
   	// import a list of modules into the list
   	list.i = function(modules, mediaQuery) {
   		if(typeof modules === "string")
@@ -364,46 +364,46 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _fbjsLibInvariant = __webpack_require__(7);
-  
+
   var _fbjsLibInvariant2 = _interopRequireDefault(_fbjsLibInvariant);
-  
+
   var _coreLocation = __webpack_require__(26);
-  
+
   var _coreLocation2 = _interopRequireDefault(_coreLocation);
-  
+
   function handleClick(event) {
-  
+
     // If not left mouse click
     if (event.button !== 0) {
       return;
     }
-  
+
     // If modified event
     if (event.metaKey || event.altKey || event.ctrlKey || event.shiftKey) {
       return;
     }
-  
+
     var el = event.currentTarget;
-  
+
     (0, _fbjsLibInvariant2['default'])(el && el.nodeName === 'A', 'The target element must be a link.');
-  
+
     // Rebuild path
     var path = el.pathname + el.search + (el.hash || '');
-  
+
     event.preventDefault();
     _coreLocation2['default'].navigateTo(path);
   }
-  
+
   exports['default'] = { handleClick: handleClick };
   module.exports = exports['default'];
 
@@ -439,18 +439,18 @@ module.exports =
    * React Routing | http://www.kriasoft.com/react-routing
    * Copyright (c) Konstantin Tarkus <hello@tarkus.me> | The MIT License
    */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var Match = function Match(route, path, keys, match) {
     _classCallCheck(this, Match);
-  
+
     this.route = route;
     this.path = path;
     this.params = Object.create(null);
@@ -458,12 +458,12 @@ module.exports =
       this.params[keys[i - 1].name] = decodeParam(match[i]);
     }
   };
-  
+
   function decodeParam(val) {
     if (!(typeof val === 'string' || val instanceof String)) {
       return val;
     }
-  
+
     try {
       return decodeURIComponent(val);
     } catch (e) {
@@ -472,7 +472,7 @@ module.exports =
       throw err;
     }
   }
-  
+
   exports['default'] = Match;
   module.exports = exports['default'];
 
@@ -484,36 +484,36 @@ module.exports =
    * React Routing | http://www.kriasoft.com/react-routing
    * Copyright (c) Konstantin Tarkus <hello@tarkus.me> | The MIT License
    */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _pathToRegexp = __webpack_require__(42);
-  
+
   var _pathToRegexp2 = _interopRequireDefault(_pathToRegexp);
-  
+
   var _Match = __webpack_require__(10);
-  
+
   var _Match2 = _interopRequireDefault(_Match);
-  
+
   var Route = (function () {
     function Route(path, handlers) {
       _classCallCheck(this, Route);
-  
+
       this.path = path;
       this.handlers = handlers;
       this.regExp = (0, _pathToRegexp2['default'])(path, this.keys = []);
     }
-  
+
     _createClass(Route, [{
       key: 'match',
       value: function match(path) {
@@ -521,10 +521,10 @@ module.exports =
         return match ? new _Match2['default'](this, path, this.keys, match) : null;
       }
     }]);
-  
+
     return Route;
   })();
-  
+
   exports['default'] = Route;
   module.exports = exports['default'];
 
@@ -536,58 +536,58 @@ module.exports =
    * React Routing | http://www.kriasoft.com/react-routing
    * Copyright (c) Konstantin Tarkus <hello@tarkus.me> | The MIT License
    */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _Route = __webpack_require__(11);
-  
+
   var _Route2 = _interopRequireDefault(_Route);
-  
+
   var emptyFunction = function emptyFunction() {};
-  
+
   var Router = (function () {
-  
+
     /**
      * Creates a new instance of the `Router` class.
      */
-  
+
     function Router(initialize) {
       _classCallCheck(this, Router);
-  
+
       this.routes = [];
       this.events = Object.create(null);
-  
+
       if (typeof initialize === 'function') {
         initialize(this.on.bind(this));
       }
     }
-  
+
     /**
      * Adds a new route to the routing table or registers an event listener.
      *
      * @param {String} path A string in the Express format, an array of strings, or a regular expression.
      * @param {Function|Array} handlers Asynchronous route handler function(s).
      */
-  
+
     _createClass(Router, [{
       key: 'on',
       value: function on(path) {
         for (var _len = arguments.length, handlers = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
           handlers[_key - 1] = arguments[_key];
         }
-  
+
         if (path === 'error') {
           this.events[path] = handlers[0];
         } else {
@@ -603,9 +603,9 @@ module.exports =
             case 0:
               next = function next() {
                 var _handlers$next;
-  
+
                 var _value, _value2, match, handler;
-  
+
                 return regeneratorRuntime.async(function next$(context$3$0) {
                   while (1) switch (context$3$0.prev = context$3$0.next) {
                     case 0:
@@ -613,44 +613,44 @@ module.exports =
                         context$3$0.next = 16;
                         break;
                       }
-  
+
                       _value = value;
                       _value2 = _slicedToArray(_value, 2);
                       match = _value2[0];
                       handler = _value2[1];
-  
+
                       state.params = match.params;
-  
+
                       if (!(handler.length > 1)) {
                         context$3$0.next = 12;
                         break;
                       }
-  
+
                       context$3$0.next = 9;
                       return regeneratorRuntime.awrap(handler(state, next));
-  
+
                     case 9:
                       context$3$0.t0 = context$3$0.sent;
                       context$3$0.next = 15;
                       break;
-  
+
                     case 12:
                       context$3$0.next = 14;
                       return regeneratorRuntime.awrap(handler(state));
-  
+
                     case 14:
                       context$3$0.t0 = context$3$0.sent;
-  
+
                     case 15:
                       return context$3$0.abrupt('return', context$3$0.t0);
-  
+
                     case 16:
                     case 'end':
                       return context$3$0.stop();
                   }
                 }, null, this);
               };
-  
+
               if (typeof state === 'string' || state instanceof String) {
                 state = { path: state };
               }
@@ -658,7 +658,7 @@ module.exports =
               routes = this.routes;
               handlers = regeneratorRuntime.mark(function callee$2$0() {
                 var _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, route, match, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, handler;
-  
+
                 return regeneratorRuntime.wrap(function callee$2$0$(context$3$0) {
                   while (1) switch (context$3$0.prev = context$3$0.next) {
                     case 0:
@@ -667,115 +667,115 @@ module.exports =
                       _iteratorError = undefined;
                       context$3$0.prev = 3;
                       _iterator = routes[Symbol.iterator]();
-  
+
                     case 5:
                       if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
                         context$3$0.next = 38;
                         break;
                       }
-  
+
                       route = _step.value;
                       match = route.match(state.path);
-  
+
                       if (!match) {
                         context$3$0.next = 35;
                         break;
                       }
-  
+
                       _iteratorNormalCompletion2 = true;
                       _didIteratorError2 = false;
                       _iteratorError2 = undefined;
                       context$3$0.prev = 12;
                       _iterator2 = match.route.handlers[Symbol.iterator]();
-  
+
                     case 14:
                       if (_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done) {
                         context$3$0.next = 21;
                         break;
                       }
-  
+
                       handler = _step2.value;
                       context$3$0.next = 18;
                       return [match, handler];
-  
+
                     case 18:
                       _iteratorNormalCompletion2 = true;
                       context$3$0.next = 14;
                       break;
-  
+
                     case 21:
                       context$3$0.next = 27;
                       break;
-  
+
                     case 23:
                       context$3$0.prev = 23;
                       context$3$0.t0 = context$3$0['catch'](12);
                       _didIteratorError2 = true;
                       _iteratorError2 = context$3$0.t0;
-  
+
                     case 27:
                       context$3$0.prev = 27;
                       context$3$0.prev = 28;
-  
+
                       if (!_iteratorNormalCompletion2 && _iterator2['return']) {
                         _iterator2['return']();
                       }
-  
+
                     case 30:
                       context$3$0.prev = 30;
-  
+
                       if (!_didIteratorError2) {
                         context$3$0.next = 33;
                         break;
                       }
-  
+
                       throw _iteratorError2;
-  
+
                     case 33:
                       return context$3$0.finish(30);
-  
+
                     case 34:
                       return context$3$0.finish(27);
-  
+
                     case 35:
                       _iteratorNormalCompletion = true;
                       context$3$0.next = 5;
                       break;
-  
+
                     case 38:
                       context$3$0.next = 44;
                       break;
-  
+
                     case 40:
                       context$3$0.prev = 40;
                       context$3$0.t1 = context$3$0['catch'](3);
                       _didIteratorError = true;
                       _iteratorError = context$3$0.t1;
-  
+
                     case 44:
                       context$3$0.prev = 44;
                       context$3$0.prev = 45;
-  
+
                       if (!_iteratorNormalCompletion && _iterator['return']) {
                         _iterator['return']();
                       }
-  
+
                     case 47:
                       context$3$0.prev = 47;
-  
+
                       if (!_didIteratorError) {
                         context$3$0.next = 50;
                         break;
                       }
-  
+
                       throw _iteratorError;
-  
+
                     case 50:
                       return context$3$0.finish(47);
-  
+
                     case 51:
                       return context$3$0.finish(44);
-  
+
                     case 52:
                     case 'end':
                       return context$3$0.stop();
@@ -783,64 +783,64 @@ module.exports =
                 }, callee$2$0, this, [[3, 40, 44, 52], [12, 23, 27, 35], [28,, 30, 34], [45,, 47, 51]]);
               })();
               value = undefined, result = undefined, done = false;
-  
+
             case 6:
               if (done) {
                 context$2$0.next = 16;
                 break;
               }
-  
+
               context$2$0.next = 9;
               return regeneratorRuntime.awrap(next());
-  
+
             case 9:
               result = context$2$0.sent;
-  
+
               if (!result) {
                 context$2$0.next = 14;
                 break;
               }
-  
+
               state.statusCode = 200;
               cb(state, result);
               return context$2$0.abrupt('return');
-  
+
             case 14:
               context$2$0.next = 6;
               break;
-  
+
             case 16:
               if (!this.events.error) {
                 context$2$0.next = 32;
                 break;
               }
-  
+
               context$2$0.prev = 17;
-  
+
               state.statusCode = 404;
               context$2$0.next = 21;
               return regeneratorRuntime.awrap(this.events.error(state, new Error('Cannot found a route matching \'' + state.path + '\'.')));
-  
+
             case 21:
               result = context$2$0.sent;
-  
+
               cb(state, result);
               context$2$0.next = 32;
               break;
-  
+
             case 25:
               context$2$0.prev = 25;
               context$2$0.t0 = context$2$0['catch'](17);
-  
+
               state.statusCode = 500;
               context$2$0.next = 30;
               return regeneratorRuntime.awrap(this.events.error(state, context$2$0.t0));
-  
+
             case 30:
               result = context$2$0.sent;
-  
+
               cb(state, result);
-  
+
             case 32:
             case 'end':
               return context$2$0.stop();
@@ -848,10 +848,10 @@ module.exports =
         }, null, this, [[17, 25]]);
       }
     }]);
-  
+
     return Router;
   })();
-  
+
   exports['default'] = Router;
   module.exports = exports['default'];
 
@@ -860,36 +860,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _this = this;
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _path = __webpack_require__(9);
-  
+
   var _express = __webpack_require__(6);
-  
+
   var _jade = __webpack_require__(51);
-  
+
   var _jade2 = _interopRequireDefault(_jade);
-  
+
   var _frontMatter = __webpack_require__(50);
-  
+
   var _frontMatter2 = _interopRequireDefault(_frontMatter);
-  
+
   var _utilsFs = __webpack_require__(31);
-  
+
   var _utilsFs2 = _interopRequireDefault(_utilsFs);
-  
+
   // A folder with Jade/Markdown/HTML content pages
   var CONTENT_DIR = (0, _path.join)(__dirname, './content');
-  
+
   // Extract 'front matter' metadata and generate HTML
   var parseJade = function parseJade(path, jadeContent) {
     var content = (0, _frontMatter2['default'])(jadeContent);
@@ -897,9 +897,9 @@ module.exports =
     var page = Object.assign({ path: path, content: html }, content.attributes);
     return page;
   };
-  
+
   var router = new _express.Router();
-  
+
   router.get('/', function callee$0$0(req, res, next) {
     var path, fileName, source, content;
     return regeneratorRuntime.async(function callee$0$0$(context$1$0) {
@@ -907,69 +907,69 @@ module.exports =
         case 0:
           context$1$0.prev = 0;
           path = req.query.path;
-  
+
           if (!(!path || path === 'undefined')) {
             context$1$0.next = 5;
             break;
           }
-  
+
           res.status(400).send({ error: 'The \'path\' query parameter cannot be empty.' });
           return context$1$0.abrupt('return');
-  
+
         case 5:
           fileName = (0, _path.join)(CONTENT_DIR, (path === '/' ? '/index' : path) + '.jade');
           context$1$0.next = 8;
           return regeneratorRuntime.awrap(_utilsFs2['default'].exists(fileName));
-  
+
         case 8:
           if (context$1$0.sent) {
             context$1$0.next = 10;
             break;
           }
-  
+
           fileName = (0, _path.join)(CONTENT_DIR, path + '/index.jade');
-  
+
         case 10:
           context$1$0.next = 12;
           return regeneratorRuntime.awrap(_utilsFs2['default'].exists(fileName));
-  
+
         case 12:
           if (context$1$0.sent) {
             context$1$0.next = 16;
             break;
           }
-  
+
           res.status(404).send({ error: 'The page \'' + path + '\' is not found.' });
           context$1$0.next = 21;
           break;
-  
+
         case 16:
           context$1$0.next = 18;
           return regeneratorRuntime.awrap(_utilsFs2['default'].readFile(fileName, { encoding: 'utf8' }));
-  
+
         case 18:
           source = context$1$0.sent;
           content = parseJade(path, source);
-  
+
           res.status(200).send(content);
-  
+
         case 21:
           context$1$0.next = 26;
           break;
-  
+
         case 23:
           context$1$0.prev = 23;
           context$1$0.t0 = context$1$0['catch'](0);
-  
+
           next(context$1$0.t0);
-  
+
         case 26:
         case 'end':
           return context$1$0.stop();
       }
     }, null, _this, [[0, 23]]);
   });
-  
+
   exports['default'] = router;
   module.exports = exports['default'];
 
@@ -978,48 +978,48 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _AppCss = __webpack_require__(32);
-  
+
   var _AppCss2 = _interopRequireDefault(_AppCss);
-  
+
   var _decoratorsWithContext = __webpack_require__(28);
-  
+
   var _decoratorsWithContext2 = _interopRequireDefault(_decoratorsWithContext);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _Header = __webpack_require__(19);
-  
+
   var _Header2 = _interopRequireDefault(_Header);
-  
+
   var _Footer = __webpack_require__(18);
-  
+
   var _Footer2 = _interopRequireDefault(_Footer);
-  
+
   var App = (function () {
     function App() {
       _classCallCheck(this, _App);
     }
-  
+
     _createClass(App, [{
       key: 'render',
       value: function render() {
@@ -1039,13 +1039,13 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _App = App;
     App = (0, _decoratorsWithStyles2['default'])(_AppCss2['default'])(App) || App;
     App = (0, _decoratorsWithContext2['default'])(App) || App;
     return App;
   })();
-  
+
   exports['default'] = App;
   module.exports = exports['default'];
 
@@ -1054,36 +1054,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _ContactPageCss = __webpack_require__(33);
-  
+
   var _ContactPageCss2 = _interopRequireDefault(_ContactPageCss);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var ContactPage = (function () {
     function ContactPage() {
       _classCallCheck(this, _ContactPage);
     }
-  
+
     _createClass(ContactPage, [{
       key: 'render',
       value: function render() {
@@ -1115,12 +1115,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _ContactPage = ContactPage;
     ContactPage = (0, _decoratorsWithStyles2['default'])(_ContactPageCss2['default'])(ContactPage) || ContactPage;
     return ContactPage;
   })();
-  
+
   exports['default'] = ContactPage;
   module.exports = exports['default'];
 
@@ -1129,36 +1129,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _ContentPageCss = __webpack_require__(34);
-  
+
   var _ContentPageCss2 = _interopRequireDefault(_ContentPageCss);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var ContentPage = (function () {
     function ContentPage() {
       _classCallCheck(this, _ContentPage);
     }
-  
+
     _createClass(ContentPage, [{
       key: 'render',
       value: function render() {
@@ -1193,12 +1193,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _ContentPage = ContentPage;
     ContentPage = (0, _decoratorsWithStyles2['default'])(_ContentPageCss2['default'])(ContentPage) || ContentPage;
     return ContentPage;
   })();
-  
+
   exports['default'] = ContentPage;
   module.exports = exports['default'];
 
@@ -1207,36 +1207,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _ErrorPageCss = __webpack_require__(35);
-  
+
   var _ErrorPageCss2 = _interopRequireDefault(_ErrorPageCss);
-  
+
   var ErrorPage = (function () {
     function ErrorPage() {
       _classCallCheck(this, _ErrorPage);
     }
-  
+
     _createClass(ErrorPage, [{
       key: 'render',
       value: function render() {
@@ -1265,12 +1265,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _ErrorPage = ErrorPage;
     ErrorPage = (0, _decoratorsWithStyles2['default'])(_ErrorPageCss2['default'])(ErrorPage) || ErrorPage;
     return ErrorPage;
   })();
-  
+
   exports['default'] = ErrorPage;
   module.exports = exports['default'];
 
@@ -1279,44 +1279,44 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _FooterCss = __webpack_require__(36);
-  
+
   var _FooterCss2 = _interopRequireDefault(_FooterCss);
-  
+
   var _decoratorsWithViewport = __webpack_require__(29);
-  
+
   var _decoratorsWithViewport2 = _interopRequireDefault(_decoratorsWithViewport);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _utilsLink = __webpack_require__(5);
-  
+
   var _utilsLink2 = _interopRequireDefault(_utilsLink);
-  
+
   var Footer = (function () {
     function Footer() {
       _classCallCheck(this, _Footer);
     }
-  
+
     _createClass(Footer, [{
       key: 'render',
       value: function render() {
@@ -1324,9 +1324,9 @@ module.exports =
         var _props$viewport = this.props.viewport;
         var width = _props$viewport.width;
         var height = _props$viewport.height;
-  
+
         this.renderCss('.Footer-viewport:after {content:\' ' + width + 'x' + height + '\';}');
-  
+
         return _react2['default'].createElement(
           'div',
           { className: 'Footer' },
@@ -1351,13 +1351,13 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _Footer = Footer;
     Footer = (0, _decoratorsWithStyles2['default'])(_FooterCss2['default'])(Footer) || Footer;
     Footer = (0, _decoratorsWithViewport2['default'])(Footer) || Footer;
     return Footer;
   })();
-  
+
   exports['default'] = Footer;
   module.exports = exports['default'];
 
@@ -1366,44 +1366,44 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _HeaderCss = __webpack_require__(37);
-  
+
   var _HeaderCss2 = _interopRequireDefault(_HeaderCss);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _utilsLink = __webpack_require__(5);
-  
+
   var _utilsLink2 = _interopRequireDefault(_utilsLink);
-  
+
   var _Navigation = __webpack_require__(21);
-  
+
   var _Navigation2 = _interopRequireDefault(_Navigation);
-  
+
   var Header = (function () {
     function Header() {
       _classCallCheck(this, _Header);
     }
-  
+
     _createClass(Header, [{
       key: 'render',
       value: function render() {
@@ -1427,12 +1427,12 @@ module.exports =
         );
       }
     }]);
-  
+
     var _Header = Header;
     Header = (0, _decoratorsWithStyles2['default'])(_HeaderCss2['default'])(Header) || Header;
     return Header;
   })();
-  
+
   exports['default'] = Header;
   module.exports = exports['default'];
 
@@ -1441,36 +1441,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _LoginPageCss = __webpack_require__(38);
-  
+
   var _LoginPageCss2 = _interopRequireDefault(_LoginPageCss);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var LoginPage = (function () {
     function LoginPage() {
       _classCallCheck(this, _LoginPage);
     }
-  
+
     _createClass(LoginPage, [{
       key: 'render',
       value: function render() {
@@ -1502,12 +1502,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _LoginPage = LoginPage;
     LoginPage = (0, _decoratorsWithStyles2['default'])(_LoginPageCss2['default'])(LoginPage) || LoginPage;
     return LoginPage;
   })();
-  
+
   exports['default'] = LoginPage;
   module.exports = exports['default'];
 
@@ -1516,44 +1516,44 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _classnames = __webpack_require__(45);
-  
+
   var _classnames2 = _interopRequireDefault(_classnames);
-  
+
   var _NavigationCss = __webpack_require__(39);
-  
+
   var _NavigationCss2 = _interopRequireDefault(_NavigationCss);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _utilsLink = __webpack_require__(5);
-  
+
   var _utilsLink2 = _interopRequireDefault(_utilsLink);
-  
+
   var Navigation = (function () {
     function Navigation() {
       _classCallCheck(this, _Navigation);
     }
-  
+
     _createClass(Navigation, [{
       key: 'render',
       value: function render() {
@@ -1566,12 +1566,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _Navigation = Navigation;
     Navigation = (0, _decoratorsWithStyles2['default'])(_NavigationCss2['default'])(Navigation) || Navigation;
     return Navigation;
   })();
-  
+
   exports['default'] = Navigation;
   module.exports = exports['default'];
 
@@ -1580,36 +1580,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _NotFoundPageCss = __webpack_require__(40);
-  
+
   var _NotFoundPageCss2 = _interopRequireDefault(_NotFoundPageCss);
-  
+
   var NotFoundPage = (function () {
     function NotFoundPage() {
       _classCallCheck(this, _NotFoundPage);
     }
-  
+
     _createClass(NotFoundPage, [{
       key: 'render',
       value: function render() {
@@ -1639,12 +1639,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _NotFoundPage = NotFoundPage;
     NotFoundPage = (0, _decoratorsWithStyles2['default'])(_NotFoundPageCss2['default'])(NotFoundPage) || NotFoundPage;
     return NotFoundPage;
   })();
-  
+
   exports['default'] = NotFoundPage;
   module.exports = exports['default'];
 
@@ -1653,36 +1653,36 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _decoratorsWithStyles = __webpack_require__(2);
-  
+
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
+
   var _RegisterPageCss = __webpack_require__(41);
-  
+
   var _RegisterPageCss2 = _interopRequireDefault(_RegisterPageCss);
-  
+
   var RegisterPage = (function () {
     function RegisterPage() {
       _classCallCheck(this, _RegisterPage);
     }
-  
+
     _createClass(RegisterPage, [{
       key: 'render',
       value: function render() {
@@ -1714,12 +1714,12 @@ module.exports =
       },
       enumerable: true
     }]);
-  
+
     var _RegisterPage = RegisterPage;
     RegisterPage = (0, _decoratorsWithStyles2['default'])(_RegisterPageCss2['default'])(RegisterPage) || RegisterPage;
     return RegisterPage;
   })();
-  
+
   exports['default'] = RegisterPage;
   module.exports = exports['default'];
 
@@ -1728,19 +1728,19 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _fbjsLibKeyMirror = __webpack_require__(48);
-  
+
   var _fbjsLibKeyMirror2 = _interopRequireDefault(_fbjsLibKeyMirror);
-  
+
   exports['default'] = (0, _fbjsLibKeyMirror2['default'])({
     CHANGE_LOCATION: null
   });
@@ -1751,15 +1751,15 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _flux = __webpack_require__(49);
-  
+
   exports['default'] = new _flux.Dispatcher();
   module.exports = exports['default'];
 
@@ -1768,27 +1768,27 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _fbjsLibExecutionEnvironment = __webpack_require__(4);
-  
+
   var _coreDispatcher = __webpack_require__(25);
-  
+
   var _coreDispatcher2 = _interopRequireDefault(_coreDispatcher);
-  
+
   var _constantsActionTypes = __webpack_require__(24);
-  
+
   var _constantsActionTypes2 = _interopRequireDefault(_constantsActionTypes);
-  
+
   exports['default'] = {
-  
+
     navigateTo: function navigateTo(path, options) {
       if (_fbjsLibExecutionEnvironment.canUseDOM) {
         if (options && options.replace) {
@@ -1797,13 +1797,13 @@ module.exports =
           window.history.pushState({}, document.title, path);
         }
       }
-  
+
       _coreDispatcher2['default'].dispatch({
         type: _constantsActionTypes2['default'].CHANGE_LOCATION,
         path: path
       });
     }
-  
+
   };
   module.exports = exports['default'];
 
@@ -1812,29 +1812,29 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _superagent = __webpack_require__(54);
-  
+
   var _superagent2 = _interopRequireDefault(_superagent);
-  
+
   var _fbjsLibExecutionEnvironment = __webpack_require__(4);
-  
+
   var _fbjsLibExecutionEnvironment2 = _interopRequireDefault(_fbjsLibExecutionEnvironment);
-  
+
   var getUrl = function getUrl(path) {
     return path.startsWith('http') ? path : _fbjsLibExecutionEnvironment2['default'].canUseDOM ? path : process.env.WEBSITE_HOSTNAME ? 'http://' + process.env.WEBSITE_HOSTNAME + path : 'http://127.0.0.1:' + global.server.get('port') + path;
   };
-  
+
   var http = {
-  
+
     get: function get(path) {
       return new Promise(function (resolve, reject) {
         _superagent2['default'].get(getUrl(path)).accept('application/json').end(function (err, res) {
@@ -1850,9 +1850,9 @@ module.exports =
         });
       });
     }
-  
+
   };
-  
+
   exports['default'] = http;
   module.exports = exports['default'];
 
@@ -1861,37 +1861,37 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   // eslint-disable-line no-unused-vars
-  
+
   var _fbjsLibEmptyFunction = __webpack_require__(47);
-  
+
   var _fbjsLibEmptyFunction2 = _interopRequireDefault(_fbjsLibEmptyFunction);
-  
+
   function withContext(ComposedComponent) {
     return (function () {
       function WithContext() {
         _classCallCheck(this, WithContext);
       }
-  
+
       _createClass(WithContext, [{
         key: 'getChildContext',
         value: function getChildContext() {
@@ -1908,9 +1908,9 @@ module.exports =
         value: function render() {
           var _props = this.props;
           var context = _props.context;
-  
+
           var other = _objectWithoutProperties(_props, ['context']);
-  
+
           // eslint-disable-line no-unused-vars
           return _react2['default'].createElement(ComposedComponent, other);
         }
@@ -1935,11 +1935,11 @@ module.exports =
         },
         enumerable: true
       }]);
-  
+
       return WithContext;
     })();
   }
-  
+
   exports['default'] = withContext;
   module.exports = exports['default'];
 
@@ -1948,62 +1948,62 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-  
+
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
+
   var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
+
   function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   // eslint-disable-line no-unused-vars
-  
+
   var _eventemitter3 = __webpack_require__(46);
-  
+
   var _eventemitter32 = _interopRequireDefault(_eventemitter3);
-  
+
   var _fbjsLibExecutionEnvironment = __webpack_require__(4);
-  
+
   var EE = undefined;
   var viewport = { width: 1366, height: 768 }; // Default size for server-side rendering
   var RESIZE_EVENT = 'resize';
-  
+
   function handleWindowResize() {
     if (viewport.width !== window.innerWidth || viewport.height !== window.innerHeight) {
       viewport = { width: window.innerWidth, height: window.innerHeight };
       EE.emit(RESIZE_EVENT, viewport);
     }
   }
-  
+
   function withViewport(ComposedComponent) {
     return (function (_Component) {
       _inherits(WithViewport, _Component);
-  
+
       function WithViewport() {
         _classCallCheck(this, WithViewport);
-  
+
         _get(Object.getPrototypeOf(WithViewport.prototype), 'constructor', this).call(this);
-  
+
         this.state = {
           viewport: _fbjsLibExecutionEnvironment.canUseDOM ? { width: window.innerWidth, height: window.innerHeight } : viewport
         };
       }
-  
+
       _createClass(WithViewport, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
@@ -2035,11 +2035,11 @@ module.exports =
           this.setState({ viewport: value });
         }
       }]);
-  
+
       return WithViewport;
     })(_react.Component);
   }
-  
+
   exports['default'] = withViewport;
   module.exports = exports['default'];
 
@@ -2048,59 +2048,59 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   var _this = this;
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _react = __webpack_require__(1);
-  
+
   var _react2 = _interopRequireDefault(_react);
-  
+
   var _reactRoutingSrcRouter = __webpack_require__(12);
-  
+
   var _reactRoutingSrcRouter2 = _interopRequireDefault(_reactRoutingSrcRouter);
-  
+
   var _coreHttp = __webpack_require__(27);
-  
+
   var _coreHttp2 = _interopRequireDefault(_coreHttp);
-  
+
   var _componentsApp = __webpack_require__(14);
-  
+
   var _componentsApp2 = _interopRequireDefault(_componentsApp);
-  
+
   var _componentsContentPage = __webpack_require__(16);
-  
+
   var _componentsContentPage2 = _interopRequireDefault(_componentsContentPage);
-  
+
   var _componentsContactPage = __webpack_require__(15);
-  
+
   var _componentsContactPage2 = _interopRequireDefault(_componentsContactPage);
-  
+
   var _componentsLoginPage = __webpack_require__(20);
-  
+
   var _componentsLoginPage2 = _interopRequireDefault(_componentsLoginPage);
-  
+
   var _componentsRegisterPage = __webpack_require__(23);
-  
+
   var _componentsRegisterPage2 = _interopRequireDefault(_componentsRegisterPage);
-  
+
   var _componentsNotFoundPage = __webpack_require__(22);
-  
+
   var _componentsNotFoundPage2 = _interopRequireDefault(_componentsNotFoundPage);
-  
+
   var _componentsErrorPage = __webpack_require__(17);
-  
+
   var _componentsErrorPage2 = _interopRequireDefault(_componentsErrorPage);
-  
+
   var router = new _reactRoutingSrcRouter2['default'](function (on) {
-  
+
     on('*', function callee$1$0(state, next) {
       var component;
       return regeneratorRuntime.async(function callee$1$0$(context$2$0) {
@@ -2108,7 +2108,7 @@ module.exports =
           case 0:
             context$2$0.next = 2;
             return regeneratorRuntime.awrap(next());
-  
+
           case 2:
             component = context$2$0.sent;
             return context$2$0.abrupt('return', component && _react2['default'].createElement(
@@ -2116,53 +2116,53 @@ module.exports =
               { context: state.context },
               component
             ));
-  
+
           case 4:
           case 'end':
             return context$2$0.stop();
         }
       }, null, _this);
     });
-  
+
     on('/contact', function callee$1$0() {
       return regeneratorRuntime.async(function callee$1$0$(context$2$0) {
         while (1) switch (context$2$0.prev = context$2$0.next) {
           case 0:
             return context$2$0.abrupt('return', _react2['default'].createElement(_componentsContactPage2['default'], null));
-  
+
           case 1:
           case 'end':
             return context$2$0.stop();
         }
       }, null, _this);
     });
-  
+
     on('/login', function callee$1$0() {
       return regeneratorRuntime.async(function callee$1$0$(context$2$0) {
         while (1) switch (context$2$0.prev = context$2$0.next) {
           case 0:
             return context$2$0.abrupt('return', _react2['default'].createElement(_componentsLoginPage2['default'], null));
-  
+
           case 1:
           case 'end':
             return context$2$0.stop();
         }
       }, null, _this);
     });
-  
+
     on('/register', function callee$1$0() {
       return regeneratorRuntime.async(function callee$1$0$(context$2$0) {
         while (1) switch (context$2$0.prev = context$2$0.next) {
           case 0:
             return context$2$0.abrupt('return', _react2['default'].createElement(_componentsRegisterPage2['default'], null));
-  
+
           case 1:
           case 'end':
             return context$2$0.stop();
         }
       }, null, _this);
     });
-  
+
     on('*', function callee$1$0(state) {
       var content;
       return regeneratorRuntime.async(function callee$1$0$(context$2$0) {
@@ -2170,18 +2170,18 @@ module.exports =
           case 0:
             context$2$0.next = 2;
             return regeneratorRuntime.awrap(_coreHttp2['default'].get('/api/content?path=' + state.path));
-  
+
           case 2:
             content = context$2$0.sent;
             return context$2$0.abrupt('return', content && _react2['default'].createElement(_componentsContentPage2['default'], content));
-  
+
           case 4:
           case 'end':
             return context$2$0.stop();
         }
       }, null, _this);
     });
-  
+
     on('error', function (state, error) {
       return state.statusCode === 404 ? _react2['default'].createElement(
         _componentsApp2['default'],
@@ -2194,7 +2194,7 @@ module.exports =
       );
     });
   });
-  
+
   exports['default'] = router;
   module.exports = exports['default'];
 
@@ -2203,25 +2203,25 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
+
   'use strict';
-  
+
   Object.defineProperty(exports, '__esModule', {
     value: true
   });
-  
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
+
   var _fs = __webpack_require__(8);
-  
+
   var _fs2 = _interopRequireDefault(_fs);
-  
+
   var exists = function exists(filename) {
     return new Promise(function (resolve) {
       _fs2['default'].exists(filename, resolve);
     });
   };
-  
+
   var readFile = function readFile(filename) {
     return new Promise(function (resolve, reject) {
       _fs2['default'].readFile(filename, 'utf8', function (err, data) {
@@ -2233,7 +2233,7 @@ module.exports =
       });
     });
   };
-  
+
   exports['default'] = { exists: exists, readFile: readFile };
   module.exports = exports['default'];
 
@@ -2243,11 +2243,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/**\n * Remove default margin.\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\n\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block; /* 1 */\n  vertical-align: baseline; /* 2 */\n}\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n\n[hidden],\ntemplate {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * Remove the gray background color from active links in IE 10.\n */\n\na {\n  background-color: transparent;\n}\n\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\n\na:active,\na:hover {\n  outline: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\n\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\n\nb,\nstrong {\n  font-weight: bold;\n}\n\n/**\n * Address styling not present in Safari and Chrome.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Address styling not present in IE 8/9.\n */\n\nmark {\n  background: #ff0;\n  color: #000;\n}\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsup {\n  top: -0.5em;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\n\nimg {\n  border: 0;\n}\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * Address differences between Firefox and other browsers.\n */\n\nhr {\n  -webkit-box-sizing: content-box;\n     -moz-box-sizing: content-box;\n          box-sizing: content-box;\n  height: 0;\n}\n\n/**\n * Contain overflow in all browsers.\n */\n\npre {\n  overflow: auto;\n}\n\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit; /* 1 */\n  font: inherit; /* 2 */\n  margin: 0; /* 3 */\n}\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\n\nbutton {\n  overflow: visible;\n}\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\n\nbutton,\nhtml input[type=\"button\"], /* 1 */\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n  cursor: pointer; /* 3 */\n}\n\n/**\n * Re-set default cursor for disabled elements.\n */\n\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\n\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\n\ninput {\n  line-height: normal;\n}\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\n\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n     -moz-box-sizing: border-box;\n          box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\n\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\n\ninput[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  -webkit-box-sizing: content-box;\n     -moz-box-sizing: content-box;\n          box-sizing: content-box; /* 2 */\n}\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\n\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Define consistent border, margin, and padding.\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\n\nlegend {\n  border: 0; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/* Tables\n   ========================================================================== */\n\n/**\n * Remove most spacing between table cells.\n */\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntd,\nth {\n  padding: 0;\n}\n\n/*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n/*\n * Base styles\n * ========================================================================== */\n\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em; /* ~16px; */\n  font-family: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  line-height: 1.375; /* ~22px */\n  color: #5f7a87;\n  background: #ffffff;\n}\n\na {\n  color: #6dbcdb;\n}\n\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n\n/*\n * A better looking default horizontal rule\n */\n\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n}\n\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\n\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n}\n\n/*\n * Remove default fieldset styles.\n */\n\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n\n/*\n * Allow only vertical resizing of textareas.\n */\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n * Browser upgrade prompt\n * ========================================================================== */\n\n.browserupgrade {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n}\n\n/*\n * Print styles\n * Inlined to avoid the additional HTTP request:\n * http://www.phpied.com/delay-loading-your-print-css/\n * ========================================================================== */\n\n@media print {\n  *,\n  *:before,\n  *:after {\n    background: transparent !important;\n    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    -webkit-box-shadow: none !important;\n            box-shadow: none !important;\n    text-shadow: none !important;\n  }\n\n  a,\n  a:visited {\n    text-decoration: underline;\n  }\n\n  a[href]:after {\n    content: \" (\" attr(href) \")\";\n  }\n\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\";\n  }\n\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n\n  a[href^=\"#\"]:after,\n  a[href^=\"javascript:\"]:after {\n    content: \"\";\n  }\n\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n\n  thead {\n    display: table-header-group;\n  }\n\n  tr,\n  img {\n    page-break-inside: avoid;\n  }\n\n  img {\n    max-width: 100% !important;\n  }\n\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n", ""]);
-  
+  exports.push([module.id, "/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}\n\n/*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */html{color:#222;font-weight:100;font-size:1em;font-family:Segoe UI,HelveticaNeue-Light,sans-serif;line-height:1.375;color:#5f7a87;background:#fff}a{color:#6dbcdb}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}audio,canvas,iframe,img,svg,video{vertical-align:middle}fieldset{border:0;margin:0;padding:0}textarea{resize:vertical}.browserupgrade{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}@media print{*,:after,:before{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:\" (\" attr(href) \")\"}abbr[title]:after{content:\" (\" attr(title) \")\"}a[href^=\"#\"]:after,a[href^=\"javascript:\"]:after{content:\"\"}blockquote,pre{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}img,tr{page-break-inside:avoid}img{max-width:100%!important}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}}", ""]);
+
   // exports
 
 
@@ -2257,11 +2257,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n.ContactPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-  
+  exports.push([module.id, ".ContactPage-container{margin:0 auto;padding:0 0 40px;max-width:750pt}", ""]);
+
   // exports
 
 
@@ -2271,11 +2271,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n.ContentPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-  
+  exports.push([module.id, ".ContentPage-container{margin:0 auto;padding:0 0 40px;max-width:750pt}", ""]);
+
   // exports
 
 
@@ -2285,11 +2285,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n* {\n  margin: 0;\n  line-height: 1.2;\n}\n\nhtml {\n  display: table;\n  width: 100%;\n  height: 100%;\n  color: #888;\n  text-align: center;\n  font-family: sans-serif;\n}\n\nbody {\n  display: table-cell;\n  margin: 2em auto;\n  vertical-align: middle;\n}\n\nh1 {\n  color: #555;\n  font-weight: 400;\n  font-size: 2em;\n}\n\np {\n  margin: 0 auto;\n  width: 280px;\n}\n\n@media only screen and (max-width: 280px) {\n\n  body, p {\n    width: 95%;\n  }\n\n  h1 {\n    font-size: 1.5em;\n    margin: 0 0 0.3em;\n\n  }\n\n}\n", ""]);
-  
+  exports.push([module.id, "*{margin:0;line-height:1.2}html{display:table;width:100%;height:100%;color:#888;text-align:center;font-family:sans-serif}body{display:table-cell;margin:2em auto;vertical-align:middle}h1{color:#555;font-weight:400;font-size:2em}p{margin:0 auto;width:280px}@media only screen and (max-width:280px){body,p{width:95%}h1{font-size:1.5em;margin:0 0 .3em}}", ""]);
+
   // exports
 
 
@@ -2299,11 +2299,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n.Footer {\n  background: #ffffff;\n  color: #fff;\n}\n\n.Footer-container {\n  margin: 0 auto;\n  padding: 20px 15px;\n  max-width: 1000px;\n  text-align: center;\n}\n\n.Footer-text {\n  color: #373737;\n  color: rgba(55, 55, 55, .5);\n}\n\n.Footer-text--muted {\n  color: #373737;\n  color: rgba(55, 55, 55, .3);\n}\n\n.Footer-spacer {\n  color: #373737;\n  color: rgba(55, 55, 55, .3);\n}\n\n.Footer-text,\n.Footer-link {\n  padding: 2px 5px;\n  font-size: 1em;\n}\n\n.Footer-link,\n.Footer-link:active,\n.Footer-link:visited {\n  color: #373737;\n  color: rgba(55, 55, 55, .6);\n  text-decoration: none;\n}\n\n.Footer-link:hover {\n  color: rgba(55, 55, 55, 1);\n}\n", ""]);
-  
+  exports.push([module.id, ".Footer{background:#fff;color:#fff}.Footer-container{margin:0 auto;padding:20px 15px;max-width:750pt;text-align:center}.Footer-text{color:#373737;color:rgba(55,55,55,.5)}.Footer-spacer,.Footer-text--muted{color:#373737;color:rgba(55,55,55,.3)}.Footer-link,.Footer-text{padding:2px 5px;font-size:1em}.Footer-link,.Footer-link:active,.Footer-link:visited{color:#373737;color:rgba(55,55,55,.6);text-decoration:none}.Footer-link:hover{color:#373737}", ""]);
+
   // exports
 
 
@@ -2313,11 +2313,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n.Header {\n  color: #fff;\n}\n\n.Header-container {\n  margin: 0 auto;\n  padding: 20px 0;\n  max-width: 1000px;\n}\n\n.Header-brand {\n  color: rgb(252, 67, 73);\n  font-weight: bold;\n  text-decoration: none;\n  font-size: 1.75em; /* ~28px */\n}\n\n.Header-brandTxt {\n  margin-left: 10px;\n}\n\n.Header-nav {\n  float: right;\n  margin-top: 6px;\n}\n\n.Header-banner {\n  text-align: center;\n}\n\n.Header-bannerTitle {\n  margin: 0;\n  padding: 10px;\n  font-weight: normal;\n  font-size: 4em;\n  line-height: 1em;\n}\n\n.Header-bannerDesc {\n  padding: 0;\n  color: #FFFFFF;\n  color: rgba(255, 255, 255, .5);\n  font-size: 1.25em;\n  margin: 0;\n}\n", ""]);
-  
+  exports.push([module.id, ".Header{color:#fff}.Header-container{margin:0 auto;padding:20px 0;max-width:750pt}.Header-brand{color:#fc4349;font-weight:700;text-decoration:none;font-size:1.75em}.Header-brandTxt{margin-left:10px}.Header-nav{float:right;margin-top:6px}.Header-banner{text-align:center}.Header-bannerTitle{margin:0;padding:10px;font-weight:400;font-size:4em;line-height:1em}.Header-bannerDesc{padding:0;color:#fff;color:hsla(0,0%,100%,.5);font-size:1.25em;margin:0}", ""]);
+
   // exports
 
 
@@ -2327,11 +2327,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n.LoginPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-  
+  exports.push([module.id, ".LoginPage-container{margin:0 auto;padding:0 0 40px;max-width:750pt}", ""]);
+
   // exports
 
 
@@ -2341,11 +2341,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n.Navigation-link {\n  display: inline-block;\n  padding: 3px 8px;\n  text-decoration: none;\n  font-size: 1.125em; /* ~18px */\n}\n\n.Navigation-link,\n.Navigation-link:active,\n.Navigation-link:visited {\n  color: #FFFFFF;\n  color: rgba(255, 255, 255, .6);\n}\n\n.Navigation-link:hover {\n  color: rgba(255, 255, 255, 1);\n}\n\n.Navigation-link--highlight {\n  margin-right: 8px;\n  margin-left: 8px;\n  border-radius: 3px;\n  background: #000000;\n  background: rgba(0, 0, 0, .15);\n  color: #fff;\n}\n\n.Navigation-link--highlight:hover {\n  background: #000000;\n  background: rgba(0, 0, 0, .3);\n}\n\n.Navigation-spacer {\n  color: #FFFFFF;\n  color: rgba(255, 255, 255, .3);\n}\n", ""]);
-  
+  exports.push([module.id, ".Navigation-link{display:inline-block;padding:3px 8px;text-decoration:none;font-size:1.125em}.Navigation-link,.Navigation-link:active,.Navigation-link:visited{color:#fff;color:hsla(0,0%,100%,.6)}.Navigation-link:hover{color:#fff}.Navigation-link--highlight{margin-right:8px;margin-left:8px;border-radius:3px;background:#000;background:rgba(0,0,0,.15);color:#fff}.Navigation-link--highlight:hover{background:#000;background:rgba(0,0,0,.3)}.Navigation-spacer{color:#fff;color:hsla(0,0%,100%,.3)}", ""]);
+
   // exports
 
 
@@ -2355,11 +2355,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n* {\n  margin: 0;\n  line-height: 1.2;\n}\n\nhtml {\n  display: table;\n  width: 100%;\n  height: 100%;\n  color: #888;\n  text-align: center;\n  font-family: sans-serif;\n}\n\nbody {\n  display: table-cell;\n  margin: 2em auto;\n  vertical-align: middle;\n}\n\nh1 {\n  color: #555;\n  font-weight: 400;\n  font-size: 2em;\n}\n\np {\n  margin: 0 auto;\n  width: 280px;\n}\n\n@media only screen and (max-width: 280px) {\n\n  body, p {\n    width: 95%;\n  }\n\n  h1 {\n    font-size: 1.5em;\n    margin: 0 0 0.3em;\n  }\n\n}\n", ""]);
-  
+  exports.push([module.id, "*{margin:0;line-height:1.2}html{display:table;width:100%;height:100%;color:#888;text-align:center;font-family:sans-serif}body{display:table-cell;margin:2em auto;vertical-align:middle}h1{color:#555;font-weight:400;font-size:2em}p{margin:0 auto;width:280px}@media only screen and (max-width:280px){body,p{width:95%}h1{font-size:1.5em;margin:0 0 .3em}}", ""]);
+
   // exports
 
 
@@ -2369,11 +2369,11 @@ module.exports =
 
   exports = module.exports = __webpack_require__(3)();
   // imports
-  
-  
+
+
   // module
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n\n:root {\n\n  /*\n   * Colors\n   * ======================================================================== */ /* #222 */   /* #404040 */ /* #555 */ /* #777 */ /* #eee */\n\n  /*\n   * Typography\n   * ======================================================================== */\n\n  /*\n   * Layout\n   * ======================================================================== */\n\n  /*\n   * Media queries breakpoints\n   * ======================================================================== */  /* Extra small screen / phone */  /* Small screen / tablet */  /* Medium screen / desktop */ /* Large screen / wide desktop */\n\n  /*\n   * Animations\n   * ======================================================================== */\n\n}\n\n.RegisterPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-  
+  exports.push([module.id, ".RegisterPage-container{margin:0 auto;padding:0 0 40px;max-width:750pt}", ""]);
+
   // exports
 
 
@@ -2382,7 +2382,7 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
   var isarray = __webpack_require__(43)
-  
+
   /**
    * Expose `pathToRegexp`.
    */
@@ -2391,7 +2391,7 @@ module.exports =
   module.exports.compile = compile
   module.exports.tokensToFunction = tokensToFunction
   module.exports.tokensToRegExp = tokensToRegExp
-  
+
   /**
    * The main path matching regexp utility.
    *
@@ -2409,7 +2409,7 @@ module.exports =
     // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
     '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^()])+)\\))?|\\(((?:\\\\.|[^()])+)\\))([+*?])?|(\\*))'
   ].join('|'), 'g')
-  
+
   /**
    * Parse a string for the raw tokens.
    *
@@ -2422,38 +2422,38 @@ module.exports =
     var index = 0
     var path = ''
     var res
-  
+
     while ((res = PATH_REGEXP.exec(str)) != null) {
       var m = res[0]
       var escaped = res[1]
       var offset = res.index
       path += str.slice(index, offset)
       index = offset + m.length
-  
+
       // Ignore already escaped sequences.
       if (escaped) {
         path += escaped[1]
         continue
       }
-  
+
       // Push the current path onto the tokens.
       if (path) {
         tokens.push(path)
         path = ''
       }
-  
+
       var prefix = res[2]
       var name = res[3]
       var capture = res[4]
       var group = res[5]
       var suffix = res[6]
       var asterisk = res[7]
-  
+
       var repeat = suffix === '+' || suffix === '*'
       var optional = suffix === '?' || suffix === '*'
       var delimiter = prefix || '/'
       var pattern = capture || group || (asterisk ? '.*' : '[^' + delimiter + ']+?')
-  
+
       tokens.push({
         name: name || key++,
         prefix: prefix || '',
@@ -2463,20 +2463,20 @@ module.exports =
         pattern: escapeGroup(pattern)
       })
     }
-  
+
     // Match any characters still remaining.
     if (index < str.length) {
       path += str.substr(index)
     }
-  
+
     // If the path exists, push it onto the end.
     if (path) {
       tokens.push(path)
     }
-  
+
     return tokens
   }
-  
+
   /**
    * Compile a string to a template function for the path.
    *
@@ -2486,37 +2486,37 @@ module.exports =
   function compile (str) {
     return tokensToFunction(parse(str))
   }
-  
+
   /**
    * Expose a method for transforming tokens into the path function.
    */
   function tokensToFunction (tokens) {
     // Compile all the tokens into regexps.
     var matches = new Array(tokens.length)
-  
+
     // Compile all the patterns before compilation.
     for (var i = 0; i < tokens.length; i++) {
       if (typeof tokens[i] === 'object') {
         matches[i] = new RegExp('^' + tokens[i].pattern + '$')
       }
     }
-  
+
     return function (obj) {
       var path = ''
-  
+
       obj = obj || {}
-  
+
       for (var i = 0; i < tokens.length; i++) {
         var key = tokens[i]
-  
+
         if (typeof key === 'string') {
           path += key
-  
+
           continue
         }
-  
+
         var value = obj[key.name]
-  
+
         if (value == null) {
           if (key.optional) {
             continue
@@ -2524,12 +2524,12 @@ module.exports =
             throw new TypeError('Expected "' + key.name + '" to be defined')
           }
         }
-  
+
         if (isarray(value)) {
           if (!key.repeat) {
             throw new TypeError('Expected "' + key.name + '" to not repeat')
           }
-  
+
           if (value.length === 0) {
             if (key.optional) {
               continue
@@ -2537,29 +2537,29 @@ module.exports =
               throw new TypeError('Expected "' + key.name + '" to not be empty')
             }
           }
-  
+
           for (var j = 0; j < value.length; j++) {
             if (!matches[i].test(value[j])) {
               throw new TypeError('Expected all "' + key.name + '" to match "' + key.pattern + '"')
             }
-  
+
             path += (j === 0 ? key.prefix : key.delimiter) + encodeURIComponent(value[j])
           }
-  
+
           continue
         }
-  
+
         if (!matches[i].test(value)) {
           throw new TypeError('Expected "' + key.name + '" to match "' + key.pattern + '"')
         }
-  
+
         path += key.prefix + encodeURIComponent(value)
       }
-  
+
       return path
     }
   }
-  
+
   /**
    * Escape a regular expression string.
    *
@@ -2569,7 +2569,7 @@ module.exports =
   function escapeString (str) {
     return str.replace(/([.+*?=^!:${}()[\]|\/])/g, '\\$1')
   }
-  
+
   /**
    * Escape the capturing group by escaping special characters and meaning.
    *
@@ -2579,7 +2579,7 @@ module.exports =
   function escapeGroup (group) {
     return group.replace(/([=!:$\/()])/g, '\\$1')
   }
-  
+
   /**
    * Attach the keys as a property of the regexp.
    *
@@ -2591,7 +2591,7 @@ module.exports =
     re.keys = keys
     return re
   }
-  
+
   /**
    * Get the flags for a regexp from the options.
    *
@@ -2601,7 +2601,7 @@ module.exports =
   function flags (options) {
     return options.sensitive ? '' : 'i'
   }
-  
+
   /**
    * Pull out keys from a regexp.
    *
@@ -2612,7 +2612,7 @@ module.exports =
   function regexpToRegexp (path, keys) {
     // Use a negative lookahead to match only capturing groups.
     var groups = path.source.match(/\((?!\?)/g)
-  
+
     if (groups) {
       for (var i = 0; i < groups.length; i++) {
         keys.push({
@@ -2625,10 +2625,10 @@ module.exports =
         })
       }
     }
-  
+
     return attachKeys(path, keys)
   }
-  
+
   /**
    * Transform an array into a regexp.
    *
@@ -2639,16 +2639,16 @@ module.exports =
    */
   function arrayToRegexp (path, keys, options) {
     var parts = []
-  
+
     for (var i = 0; i < path.length; i++) {
       parts.push(pathToRegexp(path[i], keys, options).source)
     }
-  
+
     var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))
-  
+
     return attachKeys(regexp, keys)
   }
-  
+
   /**
    * Create a path regexp from string input.
    *
@@ -2660,17 +2660,17 @@ module.exports =
   function stringToRegexp (path, keys, options) {
     var tokens = parse(path)
     var re = tokensToRegExp(tokens, options)
-  
+
     // Attach keys back to the regexp.
     for (var i = 0; i < tokens.length; i++) {
       if (typeof tokens[i] !== 'string') {
         keys.push(tokens[i])
       }
     }
-  
+
     return attachKeys(re, keys)
   }
-  
+
   /**
    * Expose a function for taking tokens and returning a RegExp.
    *
@@ -2681,27 +2681,27 @@ module.exports =
    */
   function tokensToRegExp (tokens, options) {
     options = options || {}
-  
+
     var strict = options.strict
     var end = options.end !== false
     var route = ''
     var lastToken = tokens[tokens.length - 1]
     var endsWithSlash = typeof lastToken === 'string' && /\/$/.test(lastToken)
-  
+
     // Iterate over the tokens and create our regexp string.
     for (var i = 0; i < tokens.length; i++) {
       var token = tokens[i]
-  
+
       if (typeof token === 'string') {
         route += escapeString(token)
       } else {
         var prefix = escapeString(token.prefix)
         var capture = token.pattern
-  
+
         if (token.repeat) {
           capture += '(?:' + prefix + capture + ')*'
         }
-  
+
         if (token.optional) {
           if (prefix) {
             capture = '(?:' + prefix + '(' + capture + '))?'
@@ -2711,11 +2711,11 @@ module.exports =
         } else {
           capture = prefix + '(' + capture + ')'
         }
-  
+
         route += capture
       }
     }
-  
+
     // In non-strict mode we allow a slash at the end of match. If the path to
     // match already ends with a slash, we remove it for consistency. The slash
     // is valid at the end of a path match, not in the middle. This is important
@@ -2723,7 +2723,7 @@ module.exports =
     if (!strict) {
       route = (endsWithSlash ? route.slice(0, -2) : route) + '(?:\\/(?=$))?'
     }
-  
+
     if (end) {
       route += '$'
     } else {
@@ -2731,10 +2731,10 @@ module.exports =
       // possible by using a positive lookahead to the end or next path segment.
       route += strict && endsWithSlash ? '' : '(?=\\/|$)'
     }
-  
+
     return new RegExp('^' + route, flags(options))
   }
-  
+
   /**
    * Normalize the given path string, returning a regular expression.
    *
@@ -2749,22 +2749,22 @@ module.exports =
    */
   function pathToRegexp (path, keys, options) {
     keys = keys || []
-  
+
     if (!isarray(keys)) {
       options = keys
       keys = []
     } else if (!options) {
       options = {}
     }
-  
+
     if (path instanceof RegExp) {
       return regexpToRegexp(path, keys, options)
     }
-  
+
     if (isarray(path)) {
       return arrayToRegexp(path, keys, options)
     }
-  
+
     return stringToRegexp(path, keys, options)
   }
 
