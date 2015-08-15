@@ -1,1 +1,11 @@
-[object Object]
+{
+  "apps": [
+    {
+      "name": "bongcheondev.io",
+      "script": "server.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
