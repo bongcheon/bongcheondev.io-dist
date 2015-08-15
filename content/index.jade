@@ -1,0 +1,54 @@
+---
+title: Bongcheon Dev
+component: ContentPage
+---
+
+-
+  var members = [{
+    name: 'Dokyung Song',
+    github: 'https://github.com/dksong',
+    blog: 'https://dksong.github.io',
+    email: 'dokyung.song@gmail.com'
+  }, {
+    name: 'Seunggeun Song',
+    github: 'https://github.com/pawsong',
+    blog: 'https://pawsong.github.io',
+    email: 'giff.song@gmail.com'
+  }];
+
+style.
+  .member-info {
+    margin-left: 5px;
+  }
+
+  .member-info .fa {
+    margin-right: 3px;
+  }
+
+div
+  div
+    h2 Mission
+    dl
+      dt
+        h3 Fun
+      dd We develop just for fun.
+  div
+    h2 Project
+    dl
+      dt
+        h3
+          a(href="http://anglify.us") Anglify
+      dd English study application for those learning English as a second language.
+  div
+    h2 Team
+    each member in members
+      p=member.name
+        span.member-info
+          i.fa.fa-github
+          a(href=member.github) GitHub
+        span.member-info
+          i.fa.fa-home
+          a(href=member.blog) Blog
+        span.member-info
+          i.fa.fa-envelope
+          a(href="mailto:" + member.email) Email
